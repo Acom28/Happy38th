@@ -237,7 +237,7 @@
 
  <!-- Audio -->
   <audio id="bg-music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+    <source src="https://www.https://github.com/Acom28/Happy38th/blob/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3">
     Your browser does not support the audio element.
   </audio>
   
@@ -291,26 +291,23 @@
     }
     animateConfetti();
 
-    // Auto play music on page load with user gesture fallback
-    window.addEventListener('load', () => {
-      const audio = document.getElementById('bg-music');
-      audio.muted = true;
-      audio.play().then(() => {
-        audio.muted = false;
-      }).catch(() => {
-        // Autoplay blocked - user interaction needed
-      });
-    });
-  </script>
-  
-<!-- YouTube music -->
-<iframe width="0" height="0"
-  src="https://www.youtube.com/embed/G02AYADKh7g?autoplay=1&loop=1&playlist=G02AYADKh7g&mute=1"
-  frameborder="0"
-  allow="autoplay"
-  allowfullscreen>
-</iframe>
+   <audio id="bg-music" loop>
+  <source src="https://www.https://github.com/Acom28/Happy38th/blob/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3">
+  Your browser does not support the audio element.
+</audio>
 
+<script>
+  window.addEventListener('load', () => {
+    const audio = document.getElementById('bg-music');
+    audio.muted = true;
+    audio.play().then(() => {
+      audio.muted = false;
+    }).catch(() => {
+      // User interaction needed to play sound
+    });
+  });
+</script>
+  
   
 </body>
 </html>
