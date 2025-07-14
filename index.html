@@ -236,10 +236,10 @@
   </footer>
 
  <!-- Audio -->
-  <audio id="bg-music" loop>
-    <source src="https://www.https://github.com/Acom28/Happy38th/blob/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3">
-    Your browser does not support the audio element.
-  </audio>
+ <audio id="bg-music" loop autoplay>
+  <source src="https://raw.githubusercontent.com/Acom28/Happy38th/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
   
   <!-- Confetti Script -->
   <script>
@@ -291,23 +291,21 @@
     }
     animateConfetti();
 
-   <audio id="bg-music" loop>
-  <source src="https://www.https://github.com/Acom28/Happy38th/blob/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3">
+<audio id="bg-music" loop autoplay>
+  <source src="https://raw.githubusercontent.com/Acom28/Happy38th/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
 <script>
   window.addEventListener('load', () => {
     const audio = document.getElementById('bg-music');
-    audio.muted = true;
-    audio.play().then(() => {
-      audio.muted = false;
-    }).catch(() => {
-      // User interaction needed to play sound
+    audio.play().catch(() => {
+      // Autoplay was blocked
+      console.log('Autoplay failed. User interaction may be required.');
     });
   });
 </script>
-  
-  
+
+
 </body>
 </html>
