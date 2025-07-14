@@ -199,10 +199,6 @@
       <div class="balloon green"></div>
     </div>
 
-    <!-- Music Button -->
-    <button onclick="document.getElementById('bg-music').play()" class="music-button">
-      Some SoulFul Music 🎵
-    </button>
 
     <!-- Message Sections -->
     <section class="thank-you-section">
@@ -294,17 +290,7 @@
       requestAnimationFrame(animateConfetti);
     }
     animateConfetti();
-
-    // Auto play music on page load with user gesture fallback
-    window.addEventListener('load', () => {
-      const audio = document.getElementById('bg-music');
-      audio.muted = true;
-      audio.play().then(() => {
-        audio.muted = false;
-      }).catch(() => {
-        // Autoplay blocked - user interaction needed
-      });
-    });
+    
     
    <!-- YouTube background music -->
 <iframe width="0" height="0"
@@ -313,6 +299,8 @@
   allow="autoplay"
   allowfullscreen>
 </iframe>
+       });
+    });
   </script>
 
 </body>
