@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Tripple G</title>
+  
+  <!-- Google Fonts for cursive -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Segoe+UI&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* Page background: light blue */
+    body {
+      background-color: #d6e4f0; /* light blue */
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      color: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Confetti canvas behind everything */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* Full width header with white background, no horizontal margin */
+    header {
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      padding: 40px 0 30px 0;
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      color: #1E3A8A; /* Blue text */
+      font-size: 3.8rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0 0 15px 0;
+      font-size: 4.5rem;
+      font-weight: normal;
+    }
+
+    header h2 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-style: italic;
+      color: #5a6d84;
+      font-size: 1.7rem;
+      margin-top: 0;
+      font-weight: 600;
+    }
+
+    img.cat-image {
+      width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin: 30px auto 0 auto;
+      display: block;
+    }
+
+    /* Container for other sections */
+    .content-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 30px auto;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Sections styling */
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      text-align: center;
+    }
+
+    section h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #1E3A8A;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #333;
+      text-align: center;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .signature {
+      font-size: 2rem;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #fbc02d;
+    }
+
+    /* Balloons */
+    .balloon-container {
+      position: fixed;
+      bottom: -150px;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .balloon {
+      width: 40px;
+      height: 55px;
+      border-radius: 50%;
+      position: absolute;
+      animation: floatUp 10s infinite ease-in;
+      opacity: 0.8;
+    }
+
+    .balloon.red   { left: 10%; background: #ff4d4d; animation-delay: 0s; }
+    .balloon.blue  { left: 40%; background: #4da6ff; animation-delay: 2s; }
+    .balloon.green { left: 70%; background: #6de37e; animation-delay: 4s; }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-120vh); }
+    }
+
+    /* Music Button */
+    .music-button {
+      margin: 20px auto 40px auto;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      background-color: #6c8ebf;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      max-width: 700px;
+      width: 90%;
+      display: block;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    footer {
+      margin: 40px 0 80px 0;
+      font-size: 1rem;
+      color: #555;
+      font-style: italic;
+      text-align: center;
+      max-width: 700px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Confetti -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <header>
+    <h1>Happy Birth-Day Tripple G 🤗</h1>
+    <h2>Clocking another year! Soon you’ll be greying— Papaa ke Acom 👴🏿, As grey as Kurt Cocaine</h2>
+    <img src="cat.jpg" alt="Birthday Cat" class="cat-image" />
+  </header>
+
+  <div class="content-container">
+
+    <!-- Balloons -->
+    <div class="balloon-container">
+      <div class="balloon red"></div>
+      <div class="balloon blue"></div>
+      <div class="balloon green"></div>
+    </div>
+
+    <!-- Music Button -->
+    <button onclick="document.getElementById('bg-music').play()" class="music-button">
+      Some SoulFul Music 🎵
+    </button>
+
+    <!-- Message Sections -->
+    <section class="thank-you-section">
+      <h3>Thank You</h3>
+      <div class="card thank-card">
+        <div class="card thank-card">
+      <p>💖 For being ridiculously kind.</p>
+      <p>🌱 For pushing people to grow and glow.</p>
+      <p>🦋 For embracing change with courage.</p>
+      <p>👂🏽 For always listening with your whole heart.</p>
+      <p>🧘🏽‍♂️ And for being the calm voice when the rest of us spiral.</p>
+    </div>
+  </section>
+
+    <section class="blessing-section">
+      <h3>Best Wishes</h3>
+      <div class="card blessing-card">
+        <p>I’m so excited to see all the beauty and goodness God still has in store for you. 🙌</p>
+        <p>May this new chapter be filled with joy, deep peace, divine surprises, and love that fills you to the brim and overflows. 💙</p>
+      </div>
+    </section>
+
+    <section class="confession-section">
+      <h3>Oh!</h3>
+      <div class="card confession-card">
+        <p>I love you — in the best, can’t-help-it, hold-my-heart kind of way.</p>
+        <p class="signature">💛</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Acom — made with dramatic affection 💙
+  </footer>
+
+  <!-- Audio -->
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Confetti Script -->
+  <script>
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Confetto {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height - canvas.height;
+        this.radius = Math.random() * 6 + 4;
+        this.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        this.speed = Math.random() * 3 + 1;
+      }
+
+      update() {
+        this.y += this.speed;
+        if (this.y > canvas.height) this.y = 0;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    // 112 confetti pieces (25% less than 150)
+    const confetti = [];
+    for (let i = 0; i < 112; i++) {
+      confetti.push(new Confetto());
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach((c) => {
+        c.update();
+        c.draw();
+      });
+      requestAnimationFrame(animateConfetti);
+    }
+    animateConfetti();
+
+    // Auto play music on page load with user gesture fallback
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('bg-music');
+      audio.muted = true;
+      audio.play().then(() => {
+        audio.muted = false;
+      }).catch(() => {
+        // Autoplay blocked - user interaction needed
+      });
+    });
+  </script>
+
+</body>
+</html>
