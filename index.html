@@ -236,7 +236,7 @@
   </footer>
 
  <!-- Audio -->
- <audio id="bg-music" loop autoplay>
+  <audio id="bg-music" loop autoplay>
   <source src="https://raw.githubusercontent.com/Acom28/Happy38th/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
@@ -291,13 +291,8 @@
     }
     animateConfetti();
 
-<audio id="bg-music" loop autoplay>
-  <source src="https://raw.githubusercontent.com/Acom28/Happy38th/main/Lenny%20Kravitz%20-%20Happy%20Birthday%20(Official%20Audio).mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  window.addEventListener('load', () => {
+    // Auto play music on page load with user gesture fallback
+    window.addEventListener('load', () => {
     const audio = document.getElementById('bg-music');
     audio.play().catch(() => {
       // Autoplay was blocked
@@ -306,6 +301,6 @@
   });
 </script>
 
-
+  
 </body>
 </html>
